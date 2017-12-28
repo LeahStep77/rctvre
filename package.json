@@ -1,0 +1,56 @@
+{
+  "name": "rctvre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "jquery": true
+    }
+  },
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "chart.js": "^2.7.1",
+    "cloudinary": "^1.9.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "firebase": "^4.7.0",
+    "highcharts": "^6.0.3",
+    "install": "^0.10.2",
+    "jsonwebtoken": "^8.1.0",
+    "moment": "^2.19.3",
+    "mongoose": "^4.13.4",
+    "npm": "^5.5.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-bootstrap": "^0.31.5",
+    "react-chartjs-2": "^2.6.4",
+    "react-dom": "^16.1.1",
+    "react-highcharts": "^15.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-sticky-dynamic-header": "^0.1.2",
+    "request": "^2.83.0",
+    "twitter": "^1.7.1",
+    "validator": "^9.1.1"
+  }
+}
