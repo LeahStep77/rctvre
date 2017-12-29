@@ -1,10 +1,7 @@
 import React from 'react';
-import Button from '../../../node_modules/react-bootstrap/lib/Button';
 import Grid from '../../../node_modules/react-bootstrap/lib/Grid';
-import Jumbotron from "../../../node_modules/react-bootstrap/lib/Jumbotron";
 import Row from '../../../node_modules/react-bootstrap/lib/Row';
 import Col from '../../../node_modules/react-bootstrap/lib/Col';
-import Map1 from "../Map1";
 import "./ThisJumbotron.css";
 
 

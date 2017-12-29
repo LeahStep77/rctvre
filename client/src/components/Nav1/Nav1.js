@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import NavbarBrand from "../../../node_modules/react-bootstrap/lib/NavbarBrand";
 import NavItem from "../../../node_modules/react-bootstrap/lib/NavItem";
-import Image from "../../../node_modules/react-bootstrap/lib/Image";
 import Nav from "../../../node_modules/react-bootstrap/lib/Nav";
 import Navbar from "../../../node_modules/react-bootstrap/lib/Navbar";
-import NavDropdown from "../../../node_modules/react-bootstrap/lib/NavDropdown";
-import MenuItem from "../../../node_modules/react-bootstrap/lib/MenuItem";
 import {SignUpForm, LoginForm, CreateEventForm} from  "../Form";
 import { LinkContainer } from 'react-router-bootstrap';
 import LogoutButton from '../LogoutButton';

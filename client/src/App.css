@@ -45,12 +45,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.map {
-  display: inline-block;
-   width: 375px;
-    height: 375px;
-    border: 1px solid black;
-}
+
 
 .xyz{
   display: inline-block;
@@ -6941,7 +6936,7 @@ button.close {
 .alerts{ 
   height: 300px;
   box-shadow: 0px 0px 15px #000;
-  background-color: cyan;
+  background-color: purple;
    margin-bottom: 20px;
 }
 
@@ -6950,15 +6945,20 @@ button.close {
 }
 
 .map{
+  display: inline-block;
   background-color: black;
   width: 100%;
   text-align: center !important;
   color: white;
-  height: 700px;
+  padding-bottom: 10px;
 }
 
 .footer{
   background-color: black;
   margin: -5px !important;
   color: white;
+  text-align: center;
 }
+.mapgeo {
+        height: 100%;
+      }

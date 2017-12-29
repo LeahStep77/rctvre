@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { Parallax } from 'react-scroll-parallax';
-import Button from '../../../node_modules/react-bootstrap/lib/Button';
 import Grid from '../../../node_modules/react-bootstrap/lib/Grid';
 import Row from '../../../node_modules/react-bootstrap/lib/Row';
 import Col from '../../../node_modules/react-bootstrap/lib/Col';
-import Map1 from "../Map1";
+
 
 
 export class Parallax1 extends Component {
