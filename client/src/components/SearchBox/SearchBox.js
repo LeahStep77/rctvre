@@ -25,37 +25,33 @@ export class SearchBox extends Component {
     });
   } //closes handleInPutChange
 
-handleFormSubmit = event => {
-  //prevent default behaviour of form submit
-  event.preventDefault();
-  //API magic here
-  API.getSearchedEvents(this.state.title)
-    .then(res => {console.log(res);
-          this.props.updateSearch(res.data);})
-    .catch(err => console.log(err));
+    handleFormSubmit = event => {
+    //prevent default behaviour of form submit
+    event.preventDefault();
+    //API magic here
+    API.getSearchedEvents(this.state.title)
+      .then(res => {console.log(res);
+            this.props.updateSearch(res.data);})
+      .catch(err => console.log(err));
+  }
 
-}
-
-render(){
-  return (
-<div className="searchBox">
-<div className="container">
-  <div className="panel panel-default">      
-          <div className="panel-body">
-          <h1 className="tagline">Find your next event</h1>
+  render(){
+    return (
+      <div className="searchBox">
+        <div className="container">
+          <div className="panel panel-default">      
+            <div className="panel-body">
+              <h1 className="tagline">Find your next event</h1>
               <div className="form-group">
                  <input name = "title" type="text" value = {this.state.title} className="form-control" placeholder="Search" onChange = {this.handleInputChange} />
               </div>
-                <button type="submit" className="btn btn-default" onClick={this.handleFormSubmit}>
-                  Search
-                </button>
+              <button type="submit" className="btn btn-default" onClick={this.handleFormSubmit}>
+                Search
+              </button>
+            </div>
           </div>
-  </div>
-</div>
-</div>
-        )
-
-      }
-
-
+        </div>
+      </div>
+    )
+  }
 }; //closes Form extends Component

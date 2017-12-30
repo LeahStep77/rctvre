@@ -6,7 +6,7 @@ import Row from '../../node_modules/react-bootstrap/lib/Row';
 import Col from '../../node_modules/react-bootstrap/lib/Col';
 import Grid from '../../node_modules/react-bootstrap/lib/Grid';
 import Parallax1 from "../components/ParallaxTest";
-import Map1 from "../components/Map1";
+import Iframe1 from "../components/Iframe1";
 
 
 
@@ -26,7 +26,9 @@ class App extends Component {
               <div><h1>Current Disasters</h1></div>
             </Col>            
           </Row>
-        </Grid>  
+        </Grid>
+        <Iframe1 />   
+        <Footer />
       </div>     
 
     );
