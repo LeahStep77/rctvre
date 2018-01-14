@@ -11,6 +11,7 @@ import Nav from "../../../node_modules/react-bootstrap/lib/Nav";
 import NavItem from "../../../node_modules/react-bootstrap/lib/NavItem";
 import {SignUpForm, LoginForm} from  "../Form";
 import {storage} from '../../firebase/fire';
+import GeoLoc from '../GeoLoc'
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("eventprofile/");
@@ -235,13 +236,14 @@ export class CreateEventForm extends Component {
 					</Modal.Body>
 				</Modal>
 
-						):(
+						):(							
 							<Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
 								<Modal.Header closeButton>
 									<Modal.Title id="contained-modal-title-sm">Sign Up or Log In to Create an Event</Modal.Title>
 								</Modal.Header>
 								<Modal.Body>
 									<div className="container">
+										<GeoLoc />
 										<Nav>
 											<NavItem eventKey={2} onClick={this.loginOpen }>Log In</NavItem>
 											<NavItem eventKey={3} onClick={this.signInOpen }>Sign Up</NavItem>

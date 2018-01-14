@@ -17,18 +17,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    
        <ThisJumbotron />
        <Parallax1 />
-        <Grid className="map">
-          <Row>
-            <Col md={12}>
-              <div><h1>Current Disasters</h1></div>
-            </Col>            
-          </Row>
-        </Grid>
-        <Iframe1 />   
-        <Footer />
+       <Iframe1 />
+       <Footer />
       </div>     
 
     );
