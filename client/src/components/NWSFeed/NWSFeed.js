@@ -6,7 +6,7 @@ export class NWSFeed extends Component {
 	constructor(){
 		super();
 		this.state={
-			pictures: [],
+			information: [],
 		};
 	}
 
@@ -16,19 +16,19 @@ componentDidMount() {
 		return results.json();
 
 	}).then(data => {
-		let pictures = data.features.map((pic) => {
+		let information = data.features.map((info) => {
 			return(
-				<div key={pic.results}>
+				<div key={info.results}>
 				<span>
-				<h4>{pic.properties.headline}</h4>
-				<p>URGENCY:  {pic.properties.urgency}.  AREA:  {pic.properties.areaDesc}.  DESCRIPTION:  {pic.properties.description}</p>
-				<p class='line'>CERTAINTY:  {pic.properties.certainty}.  INSTRUCTIONS:  {pic.properties.instruction} SEVERITY: {pic.properties.severity}</p>
+				<h4>{info.properties.headline}</h4>
+				<p>URGENCY:  {info.properties.urgency}.  AREA:  {info.properties.areaDesc}.  DESCRIPTION:  {info.properties.description}</p>
+				<p class='line'>CERTAINTY:  {info.properties.certainty}.  INSTRUCTIONS:  {info.properties.instruction} SEVERITY: {info.properties.severity}</p>
 				</span>
 				</div> 
 				)
 			})
-		this.setState({pictures: pictures});
-		console.log("state", this.state.pictures);
+		this.setState({information: information});
+		console.log("state", this.state.information);
 
 	})
 }
@@ -36,7 +36,7 @@ componentDidMount() {
 render(){
 	return(
 		<div>
-			{this.state.pictures}
+			{this.state.information}
 		</div>
 		)
 }
