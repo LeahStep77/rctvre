@@ -11,7 +11,7 @@ export class NWSFeed extends Component {
 	}
 
 componentDidMount() {
-	fetch('https://api.weather.gov/alerts/active?limit=5')
+	fetch('https://api.weather.gov/alerts/active?limit=4')
 	.then(results=>{
 		return results.json();
 
@@ -20,7 +20,7 @@ componentDidMount() {
 			return(
 				<div key={info.results}>
 				<span>
-				<h4>{info.properties.headline}</h4>
+				<h5>{info.properties.headline}</h5>
 				<p>URGENCY:  {info.properties.urgency}.  AREA:  {info.properties.areaDesc}.  DESCRIPTION:  {info.properties.description}</p>
 				<p class='line'>CERTAINTY:  {info.properties.certainty}.  INSTRUCTIONS:  {info.properties.instruction} SEVERITY: {info.properties.severity}</p>
 				</span>

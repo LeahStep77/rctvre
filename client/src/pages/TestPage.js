@@ -17,9 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <ThisJumbotron />
-       <Parallax1 />
-       <Iframe1 />
+      
        <Footer />
       </div>     
 

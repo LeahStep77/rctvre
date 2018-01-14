@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom';
 import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
-import {storage} from '../../firebase/fire';
+import FormFoot from '../FormFoot';
+
+
+
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("users/");
@@ -185,9 +188,7 @@ export class SignUpForm extends React.Component {
 					        value="Submit"/>
 
 					</form>
-
-
-
+          <FormFoot />
 				</Modal.Body>
 			</Modal>
 
