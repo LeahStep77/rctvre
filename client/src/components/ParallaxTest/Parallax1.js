@@ -22,7 +22,7 @@ export class Parallax1 extends Component {
 	        <Grid className="theinformation">
             <Row>
               <Col md={12}>
-                <h2 className='theinformation'>Emergency Alerts</h2>
+                <h2 className='theinformation'>Most Recent Emergency Alerts</h2>
                 <NWSFeed />
               </Col>
             </Row>

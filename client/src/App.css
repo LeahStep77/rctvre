@@ -6260,7 +6260,7 @@ button.close {
   left: 0;
   z-index: 1060;
   display: none;
-  max-width: 276px;
+  width: 95%;
   padding: 1px;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 14px;
@@ -6946,4 +6946,16 @@ button.close {
   position: relative;
   backface-visibility: hidden;
   background-color: cyan;
+}
+
+.well{
+  width: 100%;
+  margin: 0 auto 10px;
+  background-color: lightblue !important;
+}
+
+.firstTitle{
+  height: 40px;
+  overflow: hidden;
+  color: lightblue;
 }
