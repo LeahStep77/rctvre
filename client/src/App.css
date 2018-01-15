@@ -6927,7 +6927,6 @@ button.close {
   color: white;
   border-style: outset;
   color: lightblue;
-
 }
 .line{
   border-bottom: 1px solid red;
@@ -6935,4 +6934,16 @@ button.close {
 }
 .formFoot{
   width: 500px;
+}
+
+.Container{
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  margin-top: -100px;
+  padding-top: 100px;
+  width: 50%;
+  position: relative;
+  backface-visibility: hidden;
+  background-color: cyan;
 }

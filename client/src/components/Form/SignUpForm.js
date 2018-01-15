@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom';
 import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
-import FormFoot from '../FormFoot';
-
-
-
+import {storage} from '../../firebase/fire';
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("users/");
@@ -43,18 +40,18 @@ export class SignUpForm extends React.Component {
 
   //Need data path to not get error with fetch
   // componentDidMount(){
-  // 	fetch()
-  // 	.then(res => res.json())
-  // 	.then(data =>{
-  // 		this.setState({
-  // 		firstName=data.firstName,
-  // 		lastName=data.lastName,
-  // 		dateOfBirth=data.dateOfBirth,
-  // 		email=data.email,
-  // 		zip=data.zip,
-  // 		twitterHandle=data.twitterHandle
-  // 		});
-  // 	});
+  //  fetch()
+  //  .then(res => res.json())
+  //  .then(data =>{
+  //    this.setState({
+  //    firstName=data.firstName,
+  //    lastName=data.lastName,
+  //    dateOfBirth=data.dateOfBirth,
+  //    email=data.email,
+  //    zip=data.zip,
+  //    twitterHandle=data.twitterHandle
+  //    });
+  //  });
   // }
   handleInputChange(event) {
     const { name, value } = event.target;
@@ -105,96 +102,98 @@ export class SignUpForm extends React.Component {
       setTimeout(()=> {
         this.context.router.history.replace("/");
       },2000);
-	    this.handleClearForm(event);
-	    this.props.closeModal();
-	};
-	handleClearForm(event) {
-	    event.preventDefault();
-	    this.setState({
-	      	firstName:'',
-			lastName:'',
-			dateOfBirth:'',
-			email:'',
+      this.handleClearForm(event);
+      this.props.closeModal();
+  };
+  handleClearForm(event) {
+      event.preventDefault();
+      this.setState({
+          firstName:'',
+      lastName:'',
+      dateOfBirth:'',
+      email:'',
       password:'',
-			zip:'',
-			twitterHandle:''
-	    });
-	};
-	render(){
-		return(
+      zip:'',
+      twitterHandle:''
+      });
+  };
+  render(){
+    return(
 
 
-			<Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
-        		<Modal.Header closeButton>
-          			<Modal.Title id="contained-modal-title-sm">Sign Up</Modal.Title>
-        		</Modal.Header>
-        		<Modal.Body>
-					<form onSubmit={this.handleFormSubmit}>
+      <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-sm">Sign Up</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+          <form onSubmit={this.handleFormSubmit}>
 
 
-						<SingleInput
-							inputType={'text'}
-							title={'First Name'}
-							name={'firstName'}
-							controlFunc={this.handleInputChange}
-							content={this.state.firstName} />
-						<SingleInput
-							inputType={'text'}
-							title={'Last Name'}
-							name={'lastName'}
-							controlFunc={this.handleInputChange}
+            <SingleInput
+              inputType={'text'}
+              title={'First Name'}
+              name={'firstName'}
+              controlFunc={this.handleInputChange}
+              content={this.state.firstName} />
+            <SingleInput
+              inputType={'text'}
+              title={'Last Name'}
+              name={'lastName'}
+              controlFunc={this.handleInputChange}
               content={this.state.lastName} />
                        
               <SingleInput
-							inputType={'password'}
-							title={'Password (must be at least 8 characters in length)'}
-							name={'password'}
-							controlFunc={this.handleInputChange}
+              inputType={'password'}
+              title={'Password (must be at least 8 characters in length)'}
+              name={'password'}
+              controlFunc={this.handleInputChange}
               content={this.state.password} />
              
-						<SingleInput
-							inputType={'date'}
-							title={'Birthday'}
-							name={'dateOfBirth'}
-							controlFunc={this.handleInputChange}
-							content={this.state.dateOfBirth} />
-						<SingleInput
-							inputType={'email'}
-							title={'Email'}
-							name={'email'}
-							controlFunc={this.handleInputChange}
-							content={this.state.email} />
-						<SingleInput
-							inputType={'number'}
-							title={'Zip Code'}
-							name={'zip'}
-							controlFunc={this.handleInputChange}
-							content={this.state.zip} />
-						<SingleInput
-							inputType={'text'}
-							title={'Twitter Handle'}
-							name={'twitterHandle'}
-							controlFunc={this.handleInputChange}
-							content={this.state.twitterHandle} />
+            <SingleInput
+              inputType={'date'}
+              title={'Birthday'}
+              name={'dateOfBirth'}
+              controlFunc={this.handleInputChange}
+              content={this.state.dateOfBirth} />
+            <SingleInput
+              inputType={'email'}
+              title={'Email'}
+              name={'email'}
+              controlFunc={this.handleInputChange}
+              content={this.state.email} />
+            <SingleInput
+              inputType={'number'}
+              title={'Zip Code'}
+              name={'zip'}
+              controlFunc={this.handleInputChange}
+              content={this.state.zip} />
+            <SingleInput
+              inputType={'text'}
+              title={'Twitter Handle'}
+              name={'twitterHandle'}
+              controlFunc={this.handleInputChange}
+              content={this.state.twitterHandle} />
             <FileInput
-  							type={'file'}
-  							title={'Upload Image'}
-  							name={'image'}
+                type={'file'}
+                title={'Upload Image'}
+                name={'image'}
                 value={this.state.image}
                 controlFunc={this.handleInputChange} />
-						<input
-					        type="submit"
-					        className="btn btn-primary float-right"
-					        value="Submit"/>
+            <input
+                  type="submit"
+                  className="btn btn-primary float-right"
+                  value="Submit"/>
 
-					</form>
-          <FormFoot />
-				</Modal.Body>
-			</Modal>
+          </form>
 
-		);
 
-	}
+
+        </Modal.Body>
+      </Modal>
+
+    );
+
+  }
 }
 
 SignUpForm.contextTypes = {
