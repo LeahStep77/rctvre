@@ -60,7 +60,7 @@ export class Nav1 extends Component {
         <Navbar fixedTop collapseOnSelect inverse>
          <Navbar.Header>
            <Navbar.Brand>
-             <a className="navbar-brand navBrand eventster" href="/">
+             <a className="navbar-brand navBrand" href="/">
                VRE
              </a>
            </Navbar.Brand>

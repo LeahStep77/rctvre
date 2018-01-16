@@ -44,24 +44,20 @@ export class FormFoot extends Component {
         <Navbar fixedBottom inverse>
          <Navbar.Header>
            <Navbar.Brand>
-             <a className="navbar-brand navBrand" href="/">
-               VRE
-             </a>
+            <input
+                  type="submit"
+                  className="btn btn-primary float-right"
+                  value="Submit"/>
            </Navbar.Brand>
          </Navbar.Header>
-         
-           <Nav pullRight className='formFoot'>                 
-                 <NavItem eventKey={4} onClick={this.volInfoOpen} className="navbarItem">
-                   Volunteering? Please Continue Here
-                 </NavItem>
-               </Nav>}
-           
-           
+           <Nav pullRight className='formFoot'> 
+                
+                 <a className="navbar-brand navBrand" href="/VolSignUp">
+                Volunteering? Please Continue Here
+                </a>
 
-         <SignUpForm show={this.state.VolInfoShow} onHide={this.volInfoClose} closeModal={this.volInfoClose} />
-         
+               </Nav>}
        </Navbar>
-     
 )
    }
  };

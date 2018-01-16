@@ -3,4 +3,5 @@ export * from "./CreateEventForm";
 export * from "./EventRegistration";
 export * from "./LoginForm";
 export * from "./SignUpLogIn";
+export * from "./VolSignUp";
 

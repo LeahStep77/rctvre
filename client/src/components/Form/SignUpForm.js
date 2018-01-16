@@ -8,6 +8,7 @@ import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
 import {storage} from '../../firebase/fire';
+import FormFoot from '../FormFoot';
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("users/");
@@ -24,9 +25,14 @@ export class SignUpForm extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
+      streetAddress:'',
+      city:'',
+      state:'',
+      zip:'',
       dateOfBirth: "",
+      phoneNumber:'',
       email: "",
-      zip: "",
+      password:'',
       image:"",
       imageName:'',
       imageUrl:'',
@@ -38,21 +44,7 @@ export class SignUpForm extends React.Component {
     this.handleClearForm = this.handleClearForm.bind(this);
   }
 
-  //Need data path to not get error with fetch
-  // componentDidMount(){
-  //  fetch()
-  //  .then(res => res.json())
-  //  .then(data =>{
-  //    this.setState({
-  //    firstName=data.firstName,
-  //    lastName=data.lastName,
-  //    dateOfBirth=data.dateOfBirth,
-  //    email=data.email,
-  //    zip=data.zip,
-  //    twitterHandle=data.twitterHandle
-  //    });
-  //  });
-  // }
+ 
   handleInputChange(event) {
     const { name, value } = event.target;
     if (event.target.files){
@@ -69,27 +61,29 @@ export class SignUpForm extends React.Component {
     const formPayload = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      streetAddress: this.state.streetAddress,
+      city: this.state.city,
+      state: this.state.state,
       dateOfBirth: this.state.dateOfBirth,
+      phoneNumber: this.state.phoneNumber,
       email: this.state.email,
       zip: this.state.zip,
-      twitterHandle: this.state.twitterHandle,
       password: this.state.password,
+      image: this.state.image,
       imageName: this.state.imageName,
       imageUrl: this.state.imageUrl
-    };
-
-
+    };     
     //create post request with right data path
     console.log("Send this in a POST request:", formPayload);
     console.log(this.state);
-    const { firstName, email, password, dateOfBirth, lastName, zip, imageUrl, imageName, image, twitterHandle } = this.state;
+    const { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, password, image, imageName, imageUrl, twitterHandle } = this.state;
     axios
-      .post("/signup", { email, password, name: firstName, lastName, dateOfBirth, imageUrl, imageName, image, zip, twitterHandle })
+      .post("/signup", { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, image, imageName, imageUrl, twitterHandle, password })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);
 
-        jwt.verify(response.data.token, "a secret phrasesssssss!!", (err, decoded) => {
+        jwt.verify(response.data.token, "a secret phrase!", (err, decoded) => {
           // the 401 code is for unauthorized status
           decode = decoded.sub;
           storageRef.child(decode + "/" + file.name).put(file).then((snapshot) => {
@@ -109,12 +103,18 @@ export class SignUpForm extends React.Component {
       event.preventDefault();
       this.setState({
           firstName:'',
-      lastName:'',
-      dateOfBirth:'',
-      email:'',
-      password:'',
-      zip:'',
-      twitterHandle:''
+          lastName:'',
+          streetAddress:'',
+          city:'',
+          state:'',
+          zip:'',
+          dateOfBirth:'',
+          phoneNumber:'',
+          email:'',
+          password:'',
+          image:'',
+          imageName:'',
+          imageUrl:''
       });
   };
   render(){
@@ -141,14 +141,6 @@ export class SignUpForm extends React.Component {
               name={'lastName'}
               controlFunc={this.handleInputChange}
               content={this.state.lastName} />
-                       
-              <SingleInput
-              inputType={'password'}
-              title={'Password (must be at least 8 characters in length)'}
-              name={'password'}
-              controlFunc={this.handleInputChange}
-              content={this.state.password} />
-             
             <SingleInput
               inputType={'date'}
               title={'Birthday'}
@@ -156,23 +148,47 @@ export class SignUpForm extends React.Component {
               controlFunc={this.handleInputChange}
               content={this.state.dateOfBirth} />
             <SingleInput
+              inputType={'text'}
+              title={'Street Address'}
+              name={'streetAddress'}
+              controlFunc={this.handleInputChange}
+              content={this.state.streetAddress} />
+            <SingleInput
+              inputType={'text'}
+              title={'City'}
+              name={'city'}
+              controlFunc={this.handleInputChange}
+              content={this.state.city} />
+            <SingleInput
+              inputType={'text'}
+              title={'State'}
+              name={'state'}
+              controlFunc={this.handleInputChange}
+              content={this.state.state} />
+            <SingleInput
+              inputType={'number'}
+              title={'Zip Code'}
+              name={'zip'}
+              controlFunc={this.handleInputChange}
+              content={this.state.zip} />            
+            <SingleInput
+              inputType={'text'}
+              title={'Phone Number'}
+              name={'phoneNumber'}
+              controlFunc={this.handleInputChange}
+              content={this.state.phoneNumber} />
+            <SingleInput
               inputType={'email'}
               title={'Email'}
               name={'email'}
               controlFunc={this.handleInputChange}
               content={this.state.email} />
             <SingleInput
-              inputType={'number'}
-              title={'Zip Code'}
-              name={'zip'}
+              inputType={'password'}
+              title={'Password (must be at least 8 characters in length)'}
+              name={'password'}
               controlFunc={this.handleInputChange}
-              content={this.state.zip} />
-            <SingleInput
-              inputType={'text'}
-              title={'Twitter Handle'}
-              name={'twitterHandle'}
-              controlFunc={this.handleInputChange}
-              content={this.state.twitterHandle} />
+              content={this.state.password} />
             <FileInput
                 type={'file'}
                 title={'Upload Image'}
@@ -185,10 +201,8 @@ export class SignUpForm extends React.Component {
                   value="Submit"/>
 
           </form>
-
-
-
         </Modal.Body>
+        <FormFoot />
       </Modal>
 
     );

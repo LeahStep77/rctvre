@@ -8,6 +8,7 @@ import {
 import LandingPage from "./pages/LandingPage2";
 import TestPage from "./pages/TestPage";
 import {Nav1} from "./components/Nav1";
+import {VolSignUp} from "./components/Form/VolSignUp";
 import Bootstrap from "react-bootstrap";
 import {SignUpForm} from "./components/Form/SignUpForm";
 import {LoginForm} from "./components/Form/LoginForm";
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/login" component={LoginForm} />
       <Route exact path="/logout" component={LandingPage} />
       <Route exact path="/testauth" component={TestAuthentication} />
+      <Route exact path="/VolSignUp" component={VolSignUp} />
     </div>
   </Router>
 );
