@@ -6902,6 +6902,8 @@ button.close {
   text-align: center !important;
   color: white;
   padding-bottom: 10px;
+  border-left: 100px;
+
 }
 
 .footer{
@@ -6961,9 +6963,6 @@ button.close {
   color: lightblue;
 }
 
-.nwsTable{
-  width: 500px;
-}
 
 .overflow {
   height: 300px;

@@ -7,6 +7,7 @@ import Col from '../../node_modules/react-bootstrap/lib/Col';
 import Grid from '../../node_modules/react-bootstrap/lib/Grid';
 import Parallax1 from "../components/ParallaxTest";
 import Iframe1 from "../components/Iframe1";
+import NatCap from "../components/NatCap";
 
 
 
@@ -18,8 +19,8 @@ class App extends Component {
     return (
       <div className="App">
        <ThisJumbotron />
-       <Parallax1 />
-       <Iframe1 />
+       <NatCap />
+
        <Footer />
       </div>     
 

@@ -5,6 +5,7 @@ import Grid from '../../../node_modules/react-bootstrap/lib/Grid';
 import Row from '../../../node_modules/react-bootstrap/lib/Row';
 import Col from '../../../node_modules/react-bootstrap/lib/Col';
 import NWSFeed from '../NWSFeed';
+import ReadyHarrisFeed from '../ReadyHarrisFeed';
 
 
 
@@ -20,10 +21,14 @@ export class Parallax1 extends Component {
 			    tag="figure"
 		    >
 	        <Grid className="theinformation">
-            <Row>
-              <Col md={12}>
-                <h2 className='theinformation'>Most Recent Emergency Alerts</h2>
+            <Row><h2 className='theinformation'>Most Recent Emergency Alerts</h2>
+              <Col md={6}>
+                
                 <NWSFeed />
+              </Col>
+              <Col md={6}>
+                
+                <ReadyHarrisFeed />
               </Col>
             </Row>
           </Grid>   

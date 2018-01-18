@@ -11,7 +11,7 @@ import Col from "../../../node_modules/react-bootstrap/lib/Col";
 
 
 
-export class NWSFeed extends Component {
+export class ReadyHarrisFeed extends Component {
 	constructor(){
 		super();
 		this.state={
@@ -20,19 +20,18 @@ export class NWSFeed extends Component {
 	}
 
 componentDidMount() {
-	fetch('https://api.weather.gov/alerts?point=29.7752,-95.3103')
+	fetch('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.readyharris.org%2FDesktopModules%2FBlog%2FAPI%2FRSS%2FGet%3Ftabid%3D3855%26moduleid%3D15754')
 	.then(results=>{
 		return results.json();
 
 	}).then(data => {
-		let information = data.features.map((info) => {
+		let information = data.items.map((info) => {
 			return(
 				<div key={info.results}>
 				
-				<h5>{info.properties.headline}</h5>
-				<p>URGENCY:  {info.properties.urgency}.  AREA:  {info.properties.areaDesc}.  DESCRIPTION:  {info.properties.description}</p>
-				<p>CERTAINTY:  {info.properties.certainty}.  INSTRUCTIONS:  {info.properties.instruction} SEVERITY: {info.properties.severity}</p>
-				
+				<h5>{info.title}</h5>
+				<p>PUBLICATION DATE: {info.pubDate}. DESCRIPTION:  {info.description}  LINK:  {info.link}</p>
+				{info.thumbnail} {info.categories}
 				</div> 
 				)
 			})
@@ -225,4 +224,4 @@ render(){
 		)
 }
 }
-export default NWSFeed;
+export default ReadyHarrisFeed;
