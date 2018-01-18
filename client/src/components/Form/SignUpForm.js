@@ -8,7 +8,7 @@ import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
 import {storage} from '../../firebase/fire';
-import FormFoot from '../FormFoot';
+
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("users/");
@@ -36,8 +36,6 @@ export class SignUpForm extends React.Component {
       image:"",
       imageName:'',
       imageUrl:'',
-      twitterHandle: "",
-      password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -76,9 +74,9 @@ export class SignUpForm extends React.Component {
     //create post request with right data path
     console.log("Send this in a POST request:", formPayload);
     console.log(this.state);
-    const { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, password, image, imageName, imageUrl, twitterHandle } = this.state;
+    const { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl } = this.state;
     axios
-      .post("/signup", { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, image, imageName, imageUrl, twitterHandle, password })
+      .post("/signup", { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, image, imageName, imageUrl, password })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);
@@ -198,11 +196,10 @@ export class SignUpForm extends React.Component {
             <input
                   type="submit"
                   className="btn btn-primary float-right"
-                  value="Submit"/>
-
-          </form>
+                  value="Submit"/>          
+                  </form>
         </Modal.Body>
-        <FormFoot />
+        
       </Modal>
 
     );

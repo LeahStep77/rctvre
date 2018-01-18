@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import NavItem from "../../../node_modules/react-bootstrap/lib/NavItem";
 import Nav from "../../../node_modules/react-bootstrap/lib/Nav";
 import Navbar from "../../../node_modules/react-bootstrap/lib/Navbar";
-import {SignUpForm, LoginForm, CreateEventForm} from  "../Form";
+import {SignUpForm, LoginForm, CreateEventForm, VolSignUp} from  "../Form";
 import { LinkContainer } from 'react-router-bootstrap';
 import LogoutButton from '../LogoutButton';
 import Auth from "../../modules/Auth";
@@ -15,21 +15,25 @@ export class Nav1 extends Component {
      this.state={
        signInShow:false,
        loginShow:false,
+       volsignup:false,
        eventShow:false
 
-      //  createEventShow:false
+
+       // createEventShow:false
 
      };
      this.signInOpen=this.signInOpen.bind(this);
      this.signInClose=this.signInClose.bind(this);
      this.loginOpen=this.loginOpen.bind(this);
      this.loginClose=this.loginClose.bind(this);
+     this.volSignUpOpen=this.volSignUpOpen.bind(this);
+     this.volSignUpClose=this.volSignUpClose.bind(this);
 
      this.eventClose=this.eventClose.bind(this);
      this.eventOpen=this.eventOpen.bind(this);
 
-    //  this.createEventOpen=this.createEventOpen.bind(this);
-    //  this.createEventClose=this.createEventClose.bind(this);
+     // this.createEventOpen=this.createEventOpen.bind(this);
+     // this.createEventClose=this.createEventClose.bind(this);
 
    }
 
@@ -46,6 +50,14 @@ export class Nav1 extends Component {
    loginOpen(){
      this.setState({loginShow:true});
    }
+
+   volSignUpClose(){
+         this.setState({volSignUpShow:false});
+       }
+   volSignUpOpen() {
+     this.setState({volSignUpShow:true});
+   }
+   
 
    eventClose() {
      this.setState({eventShow:false});
@@ -86,14 +98,18 @@ export class Nav1 extends Component {
                  <NavItem eventKey={4} onClick={this.signInOpen} className="navbarItem">
                    Sign Up
                  </NavItem>
+                 <NavItem eventKey={4} onClick={this.volSignInOpen} className="navbarItem">
+                   Volunteer Sign Up
+                 </NavItem>
                </Nav>}
            </Nav>
          </Navbar.Collapse>
 
          <SignUpForm show={this.state.signInShow} onHide={this.signInClose} closeModal={this.signInClose} />
          <LoginForm show={this.state.loginShow} onHide={this.loginClose} closeModal={this.loginClose} />
+         <VolSignUp show={this.state.volSignUpShow} onHide={this.volSignUpClose} closeModal={this.volSignUpClose} />
 
-         <CreateEventForm show={this.state.eventShow} onHide={this.eventClose} closeModal={this.eventClose} />
+        <CreateEventForm show={this.state.eventShow} onHide={this.eventClose} closeModal={this.eventClose} />
        </Navbar>
      
 )

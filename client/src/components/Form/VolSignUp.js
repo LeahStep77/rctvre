@@ -3,21 +3,15 @@ import PropTypes from 'prop-types';
 import axios from "axios";
 import { SingleInput } from "./SingleInput";
 import "./Form.css";
-import { Link } from 'react-router-dom';
 import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
 import {storage} from '../../firebase/fire';
-import FormFoot from '../FormFoot';
-import Checkbox from '../../../node_modules/react-bootstrap/lib/Checkbox';
 import Radio from '../../../node_modules/react-bootstrap/lib/Radio';
-import DropdownButton from '../../../node_modules/react-bootstrap/lib/DropdownButton';
-import InputGroup from '../../../node_modules/react-bootstrap/lib/InputGroup';
-import MenuItem from '../../../node_modules/react-bootstrap/lib/MenuItem';
 import FormGroup from '../../../node_modules/react-bootstrap/lib/FormGroup';
 import ControlLabel from '../../../node_modules/react-bootstrap/lib/ControlLabel';
 import FormControl from '../../../node_modules/react-bootstrap/lib/FormControl';
-import Panel from '../../../node_modules/react-bootstrap/lib/Panel';
+
 
 
 const jwt = require("jsonwebtoken");
@@ -30,7 +24,20 @@ export class VolSignUp extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      emergencyContact:'',
+          firstName: "",
+          lastName: "",
+          streetAddress:'',
+          city:'',
+          state:'',
+          zip:'',
+          dateOfBirth: "",
+          phoneNumber:'',
+          email: "",
+          password:'',
+          image:"",
+          imageName:'',
+          imageUrl:'',
+          emergencyContact:'',
           relationship:'',
           emergencyPhone:'',
           spouse:'true/false??',
@@ -62,7 +69,6 @@ export class VolSignUp extends React.Component {
           truckPmp:'true/false??',
           highW:'true/false??',
           med:'true/false??',
-          backH:'true/false??',
           vet:'true/false??',                        
           ert:'true/false??', 
           nurse:'true/false??',
@@ -94,6 +100,19 @@ export class VolSignUp extends React.Component {
     event.preventDefault();
 
     const formPayload = {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName,
+          streetAddress: this.state.streetAddress,
+          city: this.state.city,
+          state: this.state.state,
+          dateOfBirth: this.state.dateOfBirth,
+          phoneNumber: this.state.phoneNumber,
+          email: this.state.email,
+          zip: this.state.zip,
+          password: this.state.password,
+          image: this.state.image,
+          imageName: this.state.imageName,
+          imageUrl: this.state.imageUrl,
           emergencyContact: this.state.emergencyContact,
           relationship: this.state.relationship,
           emergencyPhone: this.state.emergencyPhone,
@@ -137,15 +156,12 @@ export class VolSignUp extends React.Component {
           quar: this.state.quar,
           confirmEmail: this.state.confirmEmail,
     };
-
-
-
     //create post request with right data path
     console.log("Send this in a POST request:", formPayload);
     console.log(this.state);
-    const { emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail} = this.state;
+    const { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail} = this.state;
     axios
-      .post("/signup", { emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail })
+      .post("/VolSignUp", { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);
@@ -169,6 +185,19 @@ export class VolSignUp extends React.Component {
   handleClearForm(event) {
       event.preventDefault();
       this.setState({
+          firstName: "",
+          lastName: "",
+          streetAddress:'',
+          city:'',
+          state:'',
+          zip:'',
+          dateOfBirth: "",
+          phoneNumber:'',
+          email: "",
+          password:'',
+          image:"",
+          imageName:'',
+          imageUrl:'',
           emergencyContact:'',
           relationship:'',
           emergencyPhone:'',
@@ -201,7 +230,6 @@ export class VolSignUp extends React.Component {
           truckPmp:'true/false??',
           highW:'true/false??',
           med:'true/false??',
-          backH:'true/false??',
           vet:'true/false??',                        
           ert:'true/false??', 
           nurse:'true/false??',
@@ -217,21 +245,63 @@ export class VolSignUp extends React.Component {
   };
   render(){
     return(
-// <Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
-//   <Modal.Header closeButton>
-//     <Modal.Title id="contained-modal-title-sm">Volunteering? Please Continue Here}</Modal.Title>
-//       </Modal.Header>
-//         <Modal.Body>
-        <div>
+
+<Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
+  <Modal.Header closeButton>
+    <Modal.Title id="contained-modal-title-sm">Volunteer Sign Up}</Modal.Title>
+      </Modal.Header>
+        <Modal.Body>
+      
           <form onSubmit={this.handleFormSubmit}>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
+          
+          <SingleInput
+              inputType={'text'}
+              title={'First Name'}
+              name={'firstName'}
+              controlFunc={this.handleInputChange}
+              content={this.state.firstName} />
+            <SingleInput
+              inputType={'text'}
+              title={'Last Name'}
+              name={'lastName'}
+              controlFunc={this.handleInputChange}
+              content={this.state.lastName} />
+            <SingleInput
+              inputType={'date'}
+              title={'Birthday'}
+              name={'dateOfBirth'}
+              controlFunc={this.handleInputChange}
+              content={this.state.dateOfBirth} />
+            <SingleInput
+              inputType={'text'}
+              title={'Street Address'}
+              name={'streetAddress'}
+              controlFunc={this.handleInputChange}
+              content={this.state.streetAddress} />
+            <SingleInput
+              inputType={'text'}
+              title={'City'}
+              name={'city'}
+              controlFunc={this.handleInputChange}
+              content={this.state.city} />
+            <SingleInput
+              inputType={'text'}
+              title={'State'}
+              name={'state'}
+              controlFunc={this.handleInputChange}
+              content={this.state.state} />
+            <SingleInput
+              inputType={'number'}
+              title={'Zip Code'}
+              name={'zip'}
+              controlFunc={this.handleInputChange}
+              content={this.state.zip} />            
+            <SingleInput
+              inputType={'text'}
+              title={'Phone Number'}
+              name={'phoneNumber'}
+              controlFunc={this.handleInputChange}
+              content={this.state.phoneNumber} />
             <SingleInput
               inputType={'text'}
               title={'Emergency Contact Name'}
@@ -316,6 +386,26 @@ export class VolSignUp extends React.Component {
             <Radio inline name={'quar'} controlFunc={this.handleInputChange} content={this.state.quar}>Quarterly</Radio>
           </FormGroup>
 
+          
+            <SingleInput
+              inputType={'email'}
+              title={'Email'}
+              name={'email'}
+              controlFunc={this.handleInputChange}
+              content={this.state.email} />
+            <SingleInput
+              inputType={'password'}
+              title={'Password (must be at least 8 characters in length)'}
+              name={'password'}
+              controlFunc={this.handleInputChange}
+              content={this.state.password} />
+            <FileInput
+                type={'file'}
+                title={'Upload Image'}
+                name={'image'}
+                value={this.state.image}
+                controlFunc={this.handleInputChange} />
+
           <SingleInput
             inputType={'email'}
             title={'Confirm Email Address'}
@@ -327,10 +417,10 @@ export class VolSignUp extends React.Component {
                   className="btn btn-primary float-right"
                   value="Submit"/>             
         </form>
-      </div>
-//    </Modal.Body>
-//   <FormFoot />
-// </Modal>
+    
+    </Modal.Body>
+
+ </Modal>
     );
   }
 }
