@@ -161,7 +161,7 @@ export class VolSignUp extends React.Component {
     console.log(this.state);
     const { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail} = this.state;
     axios
-      .post("/VolSignUp", { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail })
+      .post("/volSignUp", { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);

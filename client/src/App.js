@@ -25,7 +25,7 @@ const App = () => (
       <Route exact path="/login" component={LoginForm} />
       <Route exact path="/logout" component={LandingPage} />
       <Route exact path="/testauth" component={TestAuthentication} />
-      <Route exact path="/VolSignUp" component={VolSignUp} />
+      <Route exact path="/volSignUp" component={VolSignUp} />
     </div>
   </Router>
 );

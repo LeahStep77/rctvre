@@ -98,7 +98,7 @@ export class Nav1 extends Component {
                  <NavItem eventKey={4} onClick={this.signInOpen} className="navbarItem">
                    Sign Up
                  </NavItem>
-                 <NavItem eventKey={4} onClick={this.volSignInOpen} className="navbarItem">
+                 <NavItem eventKey={2} onClick={this.volSignUpOpen} className="navbarItem">
                    Volunteer Sign Up
                  </NavItem>
                </Nav>}
