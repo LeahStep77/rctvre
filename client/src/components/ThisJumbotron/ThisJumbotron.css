@@ -7,7 +7,19 @@
 }
 
 h3{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: "Arial Black", Gadget, sans-serif;
+  color: #133C7D;
+  opacity: .9;
   text-align: left;
-  color: blue;
-  font-size: 25px;
+  text-transform: normal;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 1px 0px 0 rgba(140,140,140,0.6) , -2px -1px 1px rgba(0,0,0,0.67) ;
+  font-size: 275%;
+
 }

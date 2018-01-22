@@ -9,16 +9,15 @@ import CarouselCaption from "../../../node_modules/react-bootstrap/lib/CarouselC
 
 
 
-
-
 export default class ThisJumbotron extends React.Component {
   render() {
     return (
-      <div className="abc">                    
+      <div className="abc"> 
+      <Col className="hidden-xs" sm={12} md={12} lg={125}>                  
             <Carousel>
     <Carousel.Item>
-      <Carousel.Caption class="jt">
-        <h3 class="jt">Neighbors</h3>
+      <Carousel.Caption className="hidden-xs">
+        <h3>Neighbors</h3>
         <h3>Helping</h3>
         <h3>Neighbors</h3>
       </Carousel.Caption>
@@ -26,16 +25,18 @@ export default class ThisJumbotron extends React.Component {
     <Carousel.Item>
       <Carousel.Caption>
         <h3>Volunteer & Respond</h3>
-        <h3>to Local Disaster's</h3>
+        <h3>to Local Disasters</h3>
       </Carousel.Caption>
     </Carousel.Item>
     <Carousel.Item>
       <Carousel.Caption>
         <h3>Get Rescued</h3>
-        <h3>by Local Volunteers</h3>
+        <h3>by Local</h3>
+        <h3>Volunteers</h3>
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
+  </Col>
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import * as firebase from "firebase";
 
 const config = {
-  apiKey: "keyhere",
-  authDomain: "infohere.firebaseapp.com",
-  databaseURL: "https://databaseName.firebaseio.com",
-  projectId: "projectID",
-  storageBucket: "storageBucket.appspot.com",
-  messagingSenderId: "senderid"
+ apiKey: "AIzaSyDIQSnQP9mn5kbMAp2U6-HFjTDgTlYXmjw",
+ authDomain: "formdatabasenew.firebaseapp.com",
+databaseURL: "https://formdatabasenew.firebaseio.com",
+projectId: "formdatabasenew",
+storageBucket: "formdatabasenew.appspot.com",
+messagingSenderId: "349969823981"
 };
 
 firebase.initializeApp(config);

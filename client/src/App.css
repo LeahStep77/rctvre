@@ -7,13 +7,14 @@ p{
 }
 
 a{
-  font-size: 14px;
+  font-size: 18px;
+
 }
 body {
   color: black;
   margin: 0;
   padding: 0;
-  font-family: "Arial Black", Gadget, sans-serif
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .App {
@@ -147,6 +148,7 @@ Navbar {
 
 .navbarItem {
   margin-top: 10px;
+  color: red;
 }
 
 .tagline{
@@ -206,6 +208,7 @@ a {
 a:active,
 a:hover {
   outline: 0;
+
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -1490,7 +1493,7 @@ mark,
   color: #777;
 }
 .text-primary {
-  color: #337ab7;
+  color: #133C7D;
 }
 a.text-primary:hover,
 a.text-primary:focus {
@@ -3268,7 +3271,7 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #133C7D;
   border-color: #2e6da4;
 }
 .btn-primary:focus,
@@ -3279,7 +3282,7 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #286090;
+  background-color: #b11031;
   border-color: #204d74;
 }
 .btn-primary:active,
@@ -4137,11 +4140,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #eee;
+  color: red !important;
 }
 .nav > li.disabled > a {
   color: #777;
@@ -4428,7 +4431,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
   height: 50px;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 25px;
   line-height: 20px;
 }
 .navbar-brand:hover,
@@ -6958,15 +6961,21 @@ button.close {
 }
 
 .firstTitle{
-  height: 40px;
+  height: 50px;
   overflow: hidden;
   color: lightblue;
+  background: #133C7D;
+  box-shadow: 0px 0px 15px rgba(33,62,83,0.7) inset;
+ -moz-box-shadow: 0px 0px 15px rgba(33,62,83,0.7) inset;
+ -webkit-box-shadow: 0px 0px 15px rgba(33,62,83,0.7) inset;
 }
 
 
 .overflow {
-  height: 300px;
-  display: block;  
-  overflow-x: hidden;
+  height: 400px;
   overflow-y: scroll;
+  align-content: center;
 }
+
+
+

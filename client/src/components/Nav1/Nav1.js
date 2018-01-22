@@ -6,6 +6,8 @@ import {SignUpForm, LoginForm, CreateEventForm, VolSignUp} from  "../Form";
 import { LinkContainer } from 'react-router-bootstrap';
 import LogoutButton from '../LogoutButton';
 import Auth from "../../modules/Auth";
+import Image from "../../../node_modules/react-bootstrap/lib/Image";
+import "./Nav1.css";
 
 
 
@@ -70,11 +72,9 @@ export class Nav1 extends Component {
    render(){
      return (
         <Navbar fixedTop collapseOnSelect inverse>
-         <Navbar.Header>
+         <Navbar.Header className='image'>
+         <a className="navbar-brand navBrand" href="/">VRE</a> 
            <Navbar.Brand>
-             <a className="navbar-brand navBrand" href="/">
-               VRE
-             </a>
            </Navbar.Brand>
            <Navbar.Toggle />
          </Navbar.Header>
