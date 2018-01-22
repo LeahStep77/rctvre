@@ -8,6 +8,9 @@ import Auth from "../../modules/Auth";
 import { FileInput } from "./FileInput";
 import Modal from '../../../node_modules/react-bootstrap/lib/Modal';
 import {storage} from '../../firebase/fire';
+import ControlLabel from '../../../node_modules/react-bootstrap/lib/ControlLabel';
+import FormGroup from '../../../node_modules/react-bootstrap/lib/FormGroup';
+import FormControl from '../../../node_modules/react-bootstrap/lib/FormControl';
 
 
 const jwt = require("jsonwebtoken");
@@ -25,11 +28,11 @@ export class SignUpForm extends React.Component {
     this.state = {
       firstName: "",
       lastName: "",
+      dateOfBirth: "",
       streetAddress:'',
       city:'',
       state:'',
       zip:'',
-      dateOfBirth: "",
       phoneNumber:'',
       email: "",
       password:'',
@@ -59,13 +62,13 @@ export class SignUpForm extends React.Component {
     const formPayload = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      dateOfBirth: this.state.dateOfBirth,
       streetAddress: this.state.streetAddress,
       city: this.state.city,
       state: this.state.state,
-      dateOfBirth: this.state.dateOfBirth,
+      zip: this.state.zip,
       phoneNumber: this.state.phoneNumber,
       email: this.state.email,
-      zip: this.state.zip,
       password: this.state.password,
       image: this.state.image,
       imageName: this.state.imageName,
@@ -74,9 +77,9 @@ export class SignUpForm extends React.Component {
     //create post request with right data path
     console.log("Send this in a POST request:", formPayload);
     console.log(this.state);
-    const { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl } = this.state;
+    const { firstName, lastname, dateOfBirth, streetAddress, city, state, zip, phoneNumber, email, password, image, imageName, imageUrl } = this.state;
     axios
-      .post("/signup", { firstName, lastName, streetAddress, city, state, zip, dateOfBirth, phoneNumber, email, image, imageName, imageUrl, password })
+      .post("/signup", { firstName, lastname, dateOfBirth, streetAddress, city, state, zip, phoneNumber, email, password, image, imageName, imageUrl })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);
@@ -100,19 +103,19 @@ export class SignUpForm extends React.Component {
   handleClearForm(event) {
       event.preventDefault();
       this.setState({
-          firstName:'',
-          lastName:'',
+          firstName: "",
+          lastName: "",
+          dateOfBirth: "",
           streetAddress:'',
           city:'',
           state:'',
           zip:'',
-          dateOfBirth:'',
           phoneNumber:'',
-          email:'',
+          email: "",
           password:'',
-          image:'',
+          image:"",
           imageName:'',
-          imageUrl:''
+          imageUrl:'',
       });
   };
   render(){
@@ -157,12 +160,62 @@ export class SignUpForm extends React.Component {
               name={'city'}
               controlFunc={this.handleInputChange}
               content={this.state.city} />
-            <SingleInput
-              inputType={'text'}
-              title={'State'}
-              name={'state'}
-              controlFunc={this.handleInputChange}
-              content={this.state.state} />
+            <FormGroup controlId="state">
+              <ControlLabel>state</ControlLabel>
+              <FormControl componentClass="select">
+                <option> Select Your State</option>
+                <option value="Alabama" name= {'Alabama'} controlFunc={this.handleInputChange} content={this.state.Alabama}>Alabama</option>
+                <option value="Alaska" name= {'Alaska'} controlFunc={this.handleInputChange} content={this.state.Alaska}>Alaska</option>
+                <option value="Arizona" name= {'Arizona'} controlFunc={this.handleInputChange} content={this.state.Arizona}>Arizona</option>
+                <option value="Arizona" name= {'Arizona'} controlFunc={this.handleInputChange} content={this.state.Arizona}>Arizona</option>
+                <option value="Arkansas" name= {'Arkansas'} controlFunc={this.handleInputChange} content={this.state.Arkansas}>Arkansas</option>
+                <option value="California" name= {'California'} controlFunc={this.handleInputChange} content={this.state.California}>California</option>
+                <option value="Colorado" name= {'Colorado'} controlFunc={this.handleInputChange} content={this.state.Colorado}>Colorado</option>
+                <option value="Connecticut" name= {'Connecticut'} controlFunc={this.handleInputChange} content={this.state.Connecticut}>Connecticut</option>
+                <option value="Florida" name= {'Florida'} controlFunc={this.handleInputChange} content={this.state.Florida}>Florida</option>
+                <option value="Georgia" name= {'Georgia'} controlFunc={this.handleInputChange} content={this.state.Georgia}>Georgia</option>
+                <option value="Hawaii" name= {'Hawaii'} controlFunc={this.handleInputChange} content={this.state.Hawaii}>Hawaii</option>
+                <option value="Idaho" name= {'Idaho'} controlFunc={this.handleInputChange} content={this.state.Idaho}>Idaho</option>
+                <option value="Illinois" name= {'Illinois'} controlFunc={this.handleInputChange} content={this.state.Illinois}>Illinois</option>
+                <option value="Indiana" name= {'Indiana'} controlFunc={this.handleInputChange} content={this.state.Indiana}>Indiana</option>
+                <option value="Iowa" name= {'Iowa'} controlFunc={this.handleInputChange} content={this.state.Iowa}>Iowa</option>
+                <option value="Kansas" name= {'Kansas'} controlFunc={this.handleInputChange} content={this.state.Kansas}>Kansas</option>
+                <option value="Kentucky" name= {'Kentucky'} controlFunc={this.handleInputChange} content={this.state.Kentucky}>Kentucky</option>
+                <option value="Louisiana" name= {'Louisiana'} controlFunc={this.handleInputChange} content={this.state.Louisiana}>Louisiana</option>
+                <option value="Maine" name= {'Maine'} controlFunc={this.handleInputChange} content={this.state.Maine}>Maine</option>
+                <option value="Maryland" name= {'Maryland'} controlFunc={this.handleInputChange} content={this.state.Maryland}>Maryland</option>
+                <option value="Massachusetts" name= {'Massachusetts'} controlFunc={this.handleInputChange} content={this.state.Massachusetts}>Massachusetts</option>
+                <option value="Michigan" name= {'Michigan'} controlFunc={this.handleInputChange} content={this.state.Michigan}>Michigan</option>
+                <option value="Minnesota" name= {'Minnesota'} controlFunc={this.handleInputChange} content={this.state.Minnesota}>Minnesota</option>
+                <option value="Mississippi" name= {'Mississippi'} controlFunc={this.handleInputChange} content={this.state.Mississippi}>Mississippi</option>
+                <option value="Missouri" name= {'Missouri'} controlFunc={this.handleInputChange} content={this.state.Missouri}>Missouri</option>
+                <option value="Montana" name= {'Montana'} controlFunc={this.handleInputChange} content={this.state.Montana}>Montana</option>
+                <option value="Nebraska" name= {'Nebraska'} controlFunc={this.handleInputChange} content={this.state.Nebraska}>Nebraska</option>
+                <option value="Nevada" name= {'Nevada'} controlFunc={this.handleInputChange} content={this.state.Nevada}>Nevada</option>
+                <option value="NewHampshire" name= {'NewHampshire'} controlFunc={this.handleInputChange} content={this.state.NewHampshire}>New Hampshire</option>
+                <option value="NewJersey" name= {'NewJersey'} controlFunc={this.handleInputChange} content={this.state.NewJersey}>New Jersey</option>
+                <option value="NewMexico" name= {'NewMexico'} controlFunc={this.handleInputChange} content={this.state.NewMexico}>New Mexico</option>
+                <option value="NewYork" name= {'NewYork'} controlFunc={this.handleInputChange} content={this.state.NewYork}>New York</option>
+                <option value="NorthCarolina" name= {'NorthCarolina'} controlFunc={this.handleInputChange} content={this.state.NorthCarolina}>North Carolina</option>
+                <option value="NorthDakota" name= {'NorthDakota'} controlFunc={this.handleInputChange} content={this.state.NorthDakota}>North Dakota</option>
+                <option value="Ohio" name= {'Ohio'} controlFunc={this.handleInputChange} content={this.state.Ohio}>Ohio</option>
+                <option value="Oklahoma" name= {'Oklahoma'} controlFunc={this.handleInputChange} content={this.state.Oklahoma}>Oklahoma</option>
+                <option value="Oregon" name= {'Oregon'} controlFunc={this.handleInputChange} content={this.state.Oregon}>Oregon</option>
+                <option value="Pennsylvania" name= {'Pennsylvania'} controlFunc={this.handleInputChange} content={this.state.Pennsylvania}>Pennsylvania</option>
+                <option value="RhodeIsland" name= {'RhodeIsland'} controlFunc={this.handleInputChange} content={this.state.RhodeIsland}>Rhode Island</option>
+                <option value="SouthCarolina" name= {'SouthCarolina'} controlFunc={this.handleInputChange} content={this.state.SouthCarolina}>South Carolina</option>
+                <option value="SouthDakota" name= {'SouthDakota'} controlFunc={this.handleInputChange} content={this.state.SouthDakota}>South Dakota</option>
+                <option value="Tennessee" name= {'Tennessee'} controlFunc={this.handleInputChange} content={this.state.Tennessee}>Tennessee</option>
+                <option value="Texas" name= {'Texas'} controlFunc={this.handleInputChange} content={this.state.Texas}>Texas</option>
+                <option value="Utah" name= {'Utah'} controlFunc={this.handleInputChange} content={this.state.Utah}>Utah</option>
+                <option value="Vermont" name= {'Vermont'} controlFunc={this.handleInputChange} content={this.state.Vermont}>Vermont</option>
+                <option value="Virginia" name= {'Virginia'} controlFunc={this.handleInputChange} content={this.state.Virginia}>Virginia</option>
+                <option value="Washington" name= {'Washington'} controlFunc={this.handleInputChange} content={this.state.Washington}>Washington</option>
+                <option value="WestVirginia" name= {'WestVirginia'} controlFunc={this.handleInputChange} content={this.state.WestVirginia}>West Virginia</option>
+                <option value="Wisconsin" name= {'Wisconsin'} controlFunc={this.handleInputChange} content={this.state.Wisconsin}>Wisconsin</option>
+                <option value="Wyoming" name= {'Wyoming'} controlFunc={this.handleInputChange} content={this.state.Wyoming}>Wyoming</option>      
+              </FormControl>
+            </FormGroup>   
             <SingleInput
               inputType={'number'}
               title={'Zip Code'}

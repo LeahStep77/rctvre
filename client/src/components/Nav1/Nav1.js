@@ -6,7 +6,6 @@ import {SignUpForm, LoginForm, CreateEventForm, VolSignUp} from  "../Form";
 import { LinkContainer } from 'react-router-bootstrap';
 import LogoutButton from '../LogoutButton';
 import Auth from "../../modules/Auth";
-import Image from "../../../node_modules/react-bootstrap/lib/Image";
 import "./Nav1.css";
 
 

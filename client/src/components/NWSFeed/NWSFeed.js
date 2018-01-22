@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import Popover from "../../../node_modules/react-bootstrap/lib/Popover";
-import ButtonToolbar from "../../../node_modules/react-bootstrap/lib/ButtonToolbar";
 import OverlayTrigger from "../../../node_modules/react-bootstrap/lib/OverlayTrigger";
 import Button from "../../../node_modules/react-bootstrap/lib/Button";
-import Panel from "../../../node_modules/react-bootstrap/lib/Panel";
-import Grid from "../../../node_modules/react-bootstrap/lib/Grid";
-import Row from "../../../node_modules/react-bootstrap/lib/Row";
-import Col from "../../../node_modules/react-bootstrap/lib/Col";
 
 
 const wellStyles = { maxWidth: 800, margin: '0 auto 10px' };
@@ -151,59 +146,118 @@ render(){
 					</Button>
 				</OverlayTrigger>
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover1}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[1]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover2}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[2]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover3}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[3]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover4}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[4]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover5}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[5]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover6}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[6]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover7}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[7]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover8}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[8]}
 					</Button>
 				</OverlayTrigger>	
 
-				<OverlayTrigger trigger="click" placement="top" overlay={popoverTop}>
+				<OverlayTrigger trigger="click" placement="top" overlay={popover9}>
 					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
 						{this.state.information[9]}
 					</Button>
 				</OverlayTrigger>	
+				<OverlayTrigger trigger="click" placement="top" overlay={popover10}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[10]}
+					</Button>
+				</OverlayTrigger>
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover11}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[11]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover12}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[12]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover13}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[13]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover14}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[14]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover15}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[15]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover16}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[16]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover17}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[17]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover18}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[18]}
+					</Button>
+				</OverlayTrigger>	
+
+				<OverlayTrigger trigger="click" placement="top" overlay={popover19}>
+					<Button bsStyle="primary" bsSize="large" block className="firstTitle">
+						{this.state.information[19]}
+					</Button>
+				</OverlayTrigger>
 
 			</div>
 		)

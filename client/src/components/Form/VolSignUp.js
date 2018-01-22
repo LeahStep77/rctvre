@@ -24,62 +24,60 @@ export class VolSignUp extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-          firstName: "",
-          lastName: "",
-          streetAddress:'',
-          city:'',
-          state:'',
-          zip:'',
-          dateOfBirth: "",
-          phoneNumber:'',
-          email: "",
-          password:'',
-          image:"",
-          imageName:'',
-          imageUrl:'',
-          emergencyContact:'',
-          relationship:'',
-          emergencyPhone:'',
-          spouse:false,
-          friend:false,
-          parent:false,
-          guardian:false,
-          other:false,
-          d25:false,
-          d50:false,
-          d100:false,
-          anyDistance:false,
-          any:false,
-          jan:false,
-          feb:false,
-          mar:false,
-          apr:false,
-          may:false,
-          jun:false,
-          jul:false,
-          aug:false,
-          sep:false,
-          oct:false,
-          nov:false,
-          dec:false,
-          backH:false,
-          boat:false,
-          saw:false,
-          roapR:false,
-          truckPmp:false,
-          highW:false,
-          med:false,
-          vet:false,                        
-          ert:false, 
-          nurse:false,
-          doc:false,
-          vetr:false,
-          vetT:false,
-          train:false,
-          drive:false,
-          month:false,
-          quar:false,
-          confirmEmail:''
+         firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        streetAddress:'',
+        city:'',
+        state:'',
+        zip:'',
+        phoneNumber:'',
+        emergencyContact:'',
+        relationship:'',
+        emergencyPhone:'',
+        travelDistance:'',
+        jan:'',
+        feb:'',
+        mar:'',
+        apr:'',
+        may:'',
+        jun:'',
+        jul:'',
+        aug:'',
+        sep:'',
+        oct:'',
+        nov:'',
+        dec:'',
+        boat:'',
+        backH:'',
+        saw:'',
+        truckPmp:'',
+        highW:'',
+        med:'',
+        roapR:'',
+        fireCert:'',
+        lawECert:'',
+        emrMed:'',
+        cdl:'',
+        train:'',
+        doc:'',
+        ert:'', 
+        nurse:'',
+        vet:'', 
+        vetr:'',
+        vetT:'',
+        url:'',
+        language:'',
+        otherLanguage:'',
+        month:'',
+        quar:'',
+        email: "",
+        password:'',
+        image:"",
+        imageName:'',
+        imageUrl:'',     
+        confirmEmail:''
+
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -101,31 +99,17 @@ export class VolSignUp extends React.Component {
 
     const formPayload = {
           firstName: this.state.firstName,
-          lastName: this.state.lastName,
+          lastName:  this.state.lastName,
+          dateOfBirth: this.state.dateOfBirth,
           streetAddress: this.state.streetAddress,
           city: this.state.city,
           state: this.state.state,
-          dateOfBirth: this.state.dateOfBirth,
-          phoneNumber: this.state.phoneNumber,
-          email: this.state.email,
           zip: this.state.zip,
-          password: this.state.password,
-          image: this.state.image,
-          imageName: this.state.imageName,
-          imageUrl: this.state.imageUrl,
+          phoneNumber: this.state.phoneNumber,
           emergencyContact: this.state.emergencyContact,
           relationship: this.state.relationship,
           emergencyPhone: this.state.emergencyPhone,
-          spouse: this.state.spouse,
-          friend: this.state.friend,
-          parent: this.state.parent,
-          guardian: this.state.guardian,
-          other: this.state.other,
-          d25: this.state.d25,
-          d50: this.state.d50,
-          d100: this.state.d100,
-          anyDistance: this.state.anyDistance,
-          any: this.state.any,
+          travelDistance: this.state.travelDistance,
           jan: this.state.jan,
           feb: this.state.feb,
           mar: this.state.mar,
@@ -139,29 +123,42 @@ export class VolSignUp extends React.Component {
           nov: this.state.nov,
           dec: this.state.dec,
           boat: this.state.boat,
-          backH:  this.state.backH,
-          roapR: this.state.roapR,
+          backH: this.state.backH,
+          saw: this.state.saw,
           truckPmp: this.state.truckPmp,
           highW: this.state.highW,
           med: this.state.med,
-          vet: this.state.vet,                        
+          roapR: this.state.roapR,
+          fireCert: this.state.fireCert,
+          lawECert: this.state.lawECert,
+          emrMed: this.state.emrMed,
+          cdl: this.state.cdl,
+          train: this.state.train,
+          doc: this.state.doc,
           ert: this.state.ert, 
           nurse: this.state.nurse,
-          doc: this.state.doc,
+          vet: this.state.vet, 
           vetr: this.state.vetr,
           vetT: this.state.vetT,
-          train: this.state.train,
-          drive: this.state.drive,
+          url: this.state.url,
+          language: this.state.language,
+          otherLanguage: this.state.otherLanguage,
           month: this.state.month,
           quar: this.state.quar,
-          confirmEmail: this.state.confirmEmail,
+          email: this.state.email,
+          password: this.state.password,
+          image: this.state.image,
+          imageName: this.state.imageName,
+          imageUrl: this.state.imageUrl,     
+          confirmEmail: this.state.confirmEmail
+
     };
     //create post request with right data path
     console.log("Send this in a POST request:", formPayload);
     console.log(this.state);
-    const { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail} = this.state;
+    const { firstName, lastName, streetAddress, city, state, zip, phoneNumber, emergencyContact, relationship, emergencyPhone, travelDistance, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, boat, backH, saw, truckPmp, highW, med, roapR, fireCert, lawECert, emrMed, cdl, train, doc, ert, nurse, vet, vetr, vetT, url, language, otherLanguage, month, quar, email, password, image, imageName, imageUrl, confirmEmail } = this.state;
     axios
-      .post("/volSignUp", { firstName, lastName, streetAddress, city, state, dateOfBirth, phoneNumber, email, zip, password, image, imageName, imageUrl, emergencyContact, relationship, emergencyPhone, spouse, friend, parent, guardian, other, d25, d50, d100, anyDistance, any, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, backH, boat, saw, roapR, truckPmp, highW, med, vet , ert , nurse, doc, vetr, vetT, train, drive, month, quar, confirmEmail })
+      .post("/volSignUp", { firstName, lastName, streetAddress, city, state, zip, phoneNumber, emergencyContact, relationship, emergencyPhone, travelDistance, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec, boat, backH, saw, truckPmp, highW, med, roapR, fireCert, lawECert, emrMed, cdl, train, doc, ert, nurse, vet, vetr, vetT, url, language, otherLanguage, month, quar, email, password, image, imageName, imageUrl, confirmEmail })
       .then(response =>{
         console.log(response);
         Auth.authenticateUser(response.data.token, response.data.user);
@@ -187,60 +184,58 @@ export class VolSignUp extends React.Component {
       this.setState({
           firstName: "",
           lastName: "",
+          dateOfBirth: "",
           streetAddress:'',
           city:'',
           state:'',
           zip:'',
-          dateOfBirth: "",
           phoneNumber:'',
+          emergencyContact:'',
+          relationship:'',
+          emergencyPhone:'',
+          travelDistance:'',
+          jan:'',
+          feb:'',
+          mar:'',
+          apr:'',
+          may:'',
+          jun:'',
+          jul:'',
+          aug:'',
+          sep:'',
+          oct:'',
+          nov:'',
+          dec:'',
+          boat:'',
+          backH:'',
+          saw:'',
+          truckPmp:'',
+          highW:'',
+          med:'',
+          roapR:'',
+          fireCert:'',
+          lawECert:'',
+          emrMed:'',
+          cdl:'',
+          train:'',
+          doc:'',
+          ert:'', 
+          nurse:'',
+          vet:'', 
+          vetr:'',
+          vetT:'',
+          url:'',
+          language:'',
+          otherLanguage:'',
+          month:'',
+          quar:'',
           email: "",
           password:'',
           image:"",
           imageName:'',
-          imageUrl:'',
-          emergencyContact:'',
-          relationship:'',
-          emergencyPhone:'',
-          spouse:false,
-          friend:false,
-          parent:false,
-          guardian:false,
-          other:false,
-          d25:false,
-          d50:false,
-          d100:false,
-          anyDistance:false,
-          any:false,
-          jan:false,
-          feb:false,
-          mar:false,
-          apr:false,
-          may:false,
-          jun:false,
-          jul:false,
-          aug:false,
-          sep:false,
-          oct:false,
-          nov:false,
-          dec:false,
-          backH:false,
-          boat:false,
-          saw:false,
-          roapR:false,
-          truckPmp:false,
-          highW:false,
-          med:false,
-          vet:false,                        
-          ert:false, 
-          nurse:false,
-          doc:false,
-          vetr:false,
-          vetT:false,
-          train:false,
-          drive:false,
-          month:false,
-          quar:false,
+          imageUrl:'',     
           confirmEmail:''
+
       });
   };
   render(){
@@ -284,12 +279,65 @@ export class VolSignUp extends React.Component {
               name={'city'}
               controlFunc={this.handleInputChange}
               content={this.state.city} />
-            <SingleInput
-              inputType={'text'}
-              title={'State'}
-              name={'state'}
-              controlFunc={this.handleInputChange}
-              content={this.state.state} />
+
+
+              <FormGroup controlId="state">
+              <ControlLabel>state</ControlLabel>
+              <FormControl componentClass="select">
+                <option> Select Your State</option>
+                <option value="Alabama" name= {'Alabama'} controlFunc={this.handleInputChange} content={this.state.Alabama}>Alabama</option>
+                <option value="Alaska" name= {'Alaska'} controlFunc={this.handleInputChange} content={this.state.Alaska}>Alaska</option>
+                <option value="Arizona" name= {'Arizona'} controlFunc={this.handleInputChange} content={this.state.Arizona}>Arizona</option>
+                <option value="Arizona" name= {'Arizona'} controlFunc={this.handleInputChange} content={this.state.Arizona}>Arizona</option>
+                <option value="Arkansas" name= {'Arkansas'} controlFunc={this.handleInputChange} content={this.state.Arkansas}>Arkansas</option>
+                <option value="California" name= {'California'} controlFunc={this.handleInputChange} content={this.state.California}>California</option>
+                <option value="Colorado" name= {'Colorado'} controlFunc={this.handleInputChange} content={this.state.Colorado}>Colorado</option>
+                <option value="Connecticut" name= {'Connecticut'} controlFunc={this.handleInputChange} content={this.state.Connecticut}>Connecticut</option>
+                <option value="Florida" name= {'Florida'} controlFunc={this.handleInputChange} content={this.state.Florida}>Florida</option>
+                <option value="Georgia" name= {'Georgia'} controlFunc={this.handleInputChange} content={this.state.Georgia}>Georgia</option>
+                <option value="Hawaii" name= {'Hawaii'} controlFunc={this.handleInputChange} content={this.state.Hawaii}>Hawaii</option>
+                <option value="Idaho" name= {'Idaho'} controlFunc={this.handleInputChange} content={this.state.Idaho}>Idaho</option>
+                <option value="Illinois" name= {'Illinois'} controlFunc={this.handleInputChange} content={this.state.Illinois}>Illinois</option>
+                <option value="Indiana" name= {'Indiana'} controlFunc={this.handleInputChange} content={this.state.Indiana}>Indiana</option>
+                <option value="Iowa" name= {'Iowa'} controlFunc={this.handleInputChange} content={this.state.Iowa}>Iowa</option>
+                <option value="Kansas" name= {'Kansas'} controlFunc={this.handleInputChange} content={this.state.Kansas}>Kansas</option>
+                <option value="Kentucky" name= {'Kentucky'} controlFunc={this.handleInputChange} content={this.state.Kentucky}>Kentucky</option>
+                <option value="Louisiana" name= {'Louisiana'} controlFunc={this.handleInputChange} content={this.state.Louisiana}>Louisiana</option>
+                <option value="Maine" name= {'Maine'} controlFunc={this.handleInputChange} content={this.state.Maine}>Maine</option>
+                <option value="Maryland" name= {'Maryland'} controlFunc={this.handleInputChange} content={this.state.Maryland}>Maryland</option>
+                <option value="Massachusetts" name= {'Massachusetts'} controlFunc={this.handleInputChange} content={this.state.Massachusetts}>Massachusetts</option>
+                <option value="Michigan" name= {'Michigan'} controlFunc={this.handleInputChange} content={this.state.Michigan}>Michigan</option>
+                <option value="Minnesota" name= {'Minnesota'} controlFunc={this.handleInputChange} content={this.state.Minnesota}>Minnesota</option>
+                <option value="Mississippi" name= {'Mississippi'} controlFunc={this.handleInputChange} content={this.state.Mississippi}>Mississippi</option>
+                <option value="Missouri" name= {'Missouri'} controlFunc={this.handleInputChange} content={this.state.Missouri}>Missouri</option>
+                <option value="Montana" name= {'Montana'} controlFunc={this.handleInputChange} content={this.state.Montana}>Montana</option>
+                <option value="Nebraska" name= {'Nebraska'} controlFunc={this.handleInputChange} content={this.state.Nebraska}>Nebraska</option>
+                <option value="Nevada" name= {'Nevada'} controlFunc={this.handleInputChange} content={this.state.Nevada}>Nevada</option>
+                <option value="NewHampshire" name= {'NewHampshire'} controlFunc={this.handleInputChange} content={this.state.NewHampshire}>New Hampshire</option>
+                <option value="NewJersey" name= {'NewJersey'} controlFunc={this.handleInputChange} content={this.state.NewJersey}>New Jersey</option>
+                <option value="NewMexico" name= {'NewMexico'} controlFunc={this.handleInputChange} content={this.state.NewMexico}>New Mexico</option>
+                <option value="NewYork" name= {'NewYork'} controlFunc={this.handleInputChange} content={this.state.NewYork}>New York</option>
+                <option value="NorthCarolina" name= {'NorthCarolina'} controlFunc={this.handleInputChange} content={this.state.NorthCarolina}>North Carolina</option>
+                <option value="NorthDakota" name= {'NorthDakota'} controlFunc={this.handleInputChange} content={this.state.NorthDakota}>North Dakota</option>
+                <option value="Ohio" name= {'Ohio'} controlFunc={this.handleInputChange} content={this.state.Ohio}>Ohio</option>
+                <option value="Oklahoma" name= {'Oklahoma'} controlFunc={this.handleInputChange} content={this.state.Oklahoma}>Oklahoma</option>
+                <option value="Oregon" name= {'Oregon'} controlFunc={this.handleInputChange} content={this.state.Oregon}>Oregon</option>
+                <option value="Pennsylvania" name= {'Pennsylvania'} controlFunc={this.handleInputChange} content={this.state.Pennsylvania}>Pennsylvania</option>
+                <option value="RhodeIsland" name= {'RhodeIsland'} controlFunc={this.handleInputChange} content={this.state.RhodeIsland}>Rhode Island</option>
+                <option value="SouthCarolina" name= {'SouthCarolina'} controlFunc={this.handleInputChange} content={this.state.SouthCarolina}>South Carolina</option>
+                <option value="SouthDakota" name= {'SouthDakota'} controlFunc={this.handleInputChange} content={this.state.SouthDakota}>South Dakota</option>
+                <option value="Tennessee" name= {'Tennessee'} controlFunc={this.handleInputChange} content={this.state.Tennessee}>Tennessee</option>
+                <option value="Texas" name= {'Texas'} controlFunc={this.handleInputChange} content={this.state.Texas}>Texas</option>
+                <option value="Utah" name= {'Utah'} controlFunc={this.handleInputChange} content={this.state.Utah}>Utah</option>
+                <option value="Vermont" name= {'Vermont'} controlFunc={this.handleInputChange} content={this.state.Vermont}>Vermont</option>
+                <option value="Virginia" name= {'Virginia'} controlFunc={this.handleInputChange} content={this.state.Virginia}>Virginia</option>
+                <option value="Washington" name= {'Washington'} controlFunc={this.handleInputChange} content={this.state.Washington}>Washington</option>
+                <option value="WestVirginia" name= {'WestVirginia'} controlFunc={this.handleInputChange} content={this.state.WestVirginia}>West Virginia</option>
+                <option value="Wisconsin" name= {'Wisconsin'} controlFunc={this.handleInputChange} content={this.state.Wisconsin}>Wisconsin</option>
+                <option value="Wyoming" name= {'Wyoming'} controlFunc={this.handleInputChange} content={this.state.Wyoming}>Wyoming</option>      
+              </FormControl>
+            </FormGroup>        
+
             <SingleInput
               inputType={'number'}
               title={'Zip Code'}
@@ -309,7 +357,7 @@ export class VolSignUp extends React.Component {
               controlFunc={this.handleInputChange}
               content={this.state.emergencyContact} />
               
-              <FormGroup controlId="formControlsSelect">
+              <FormGroup controlId="relationship">
                 <ControlLabel>Emergency Contact Relationship</ControlLabel>
                 <FormControl componentClass="select">
                   <option> Select Relationship</option>
@@ -328,7 +376,7 @@ export class VolSignUp extends React.Component {
               controlFunc={this.handleInputChange}
               content={this.state.emergencyPhone} />
                        
-            <FormGroup controlId="formControlsSelect">
+            <FormGroup controlId="travelDistance">
             <ControlLabel>Distance Willing To Travel</ControlLabel>
               <FormControl componentClass="select">
                 <option>Select the Distance You're Willing to Travel</option>
@@ -368,16 +416,46 @@ export class VolSignUp extends React.Component {
             </FormGroup>
 
             <FormGroup>
-              <h6><u>Select any special skills, vocational training, or disaster training you have.</u></h6>
+              <h6><u>Select any certifications, special skills, vocational training, or disaster training you have.</u></h6>
+              <Radio inline name={'fireCert'} controlFunc={this.handleInputChange} content={this.state.fireCert}>Fire Fighter Certification</Radio>
+
+              <Radio inline name={'lawECert'} controlFunc={this.handleInputChange} content={this.state.lawECert}>Law Enforcement Certification</Radio>
+
+              <Radio inline name={'emrMed'} controlFunc={this.handleInputChange} content={this.state.emrMed}>Emergency Medical Certification</Radio>
+
+              <Radio inline name={'cdl'} controlFunc={this.handleInputChange} content={this.state.cdl}>Commercial Drivers License</Radio>
+
               <Radio inline name={'train'} controlFunc={this.handleInputChange} content={this.state.train}>Animal Training/Behavior</Radio>
-              <Radio inline name={'drive'} controlFunc={this.handleInputChange} content={this.state.drive}>Commercial Driver</Radio>
+            
               <Radio inline name={'doc'} controlFunc={this.handleInputChange} content={this.state.doc}>Doctor</Radio>
               <Radio inline name={'ert'} controlFunc={this.handleInputChange} content={this.state.ert}>Emergency Response Training</Radio>
               <Radio inline name={'nurse'} controlFunc={this.handleInputChange} content={this.state.nurse}>Nurse</Radio>
               <Radio inline name={'vet'} controlFunc={this.handleInputChange} content={this.state.vet}>Veteran</Radio>       
               <Radio inline name={'vetr'} controlFunc={this.handleInputChange} content={this.state.vetr}>Veterinarian</Radio>
               <Radio inline name={'vetT'} controlFunc={this.handleInputChange} content={this.state.vetT}>Veterinarian Tech</Radio>
-          </FormGroup>                            
+          </FormGroup>      
+
+           <SingleInput
+              inputType={'text'}
+              title={'Social Media URLs'}
+              name={'url'}
+              controlFunc={this.handleInputChange}
+              content={this.state.url} />
+
+              <SingleInput
+              inputType={'text'}
+              title={'State your primary language'}
+              name={'language'}
+              controlFunc={this.handleInputChange}
+              content={this.state.language} />
+
+              <SingleInput
+              inputType={'text'}
+              title={'Do you speak any other languages'}
+              name={'otherLanguage'}
+              controlFunc={this.handleInputChange}
+              content={this.state.otherLanguage} />
+
 
           <FormGroup>
             <h5 class="center"><u>Notifications</u></h5>

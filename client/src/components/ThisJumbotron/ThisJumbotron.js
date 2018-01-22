@@ -1,10 +1,9 @@
 import React from 'react';
-import Grid from '../../../node_modules/react-bootstrap/lib/Grid';
+
 import Col from '../../../node_modules/react-bootstrap/lib/Col';
 import "./ThisJumbotron.css";
 import Carousel from "../../../node_modules/react-bootstrap/lib/Carousel";
-import CarouselItem from "../../../node_modules/react-bootstrap/lib/CarouselItem";
-import CarouselCaption from "../../../node_modules/react-bootstrap/lib/CarouselCaption";
+
 
 
 

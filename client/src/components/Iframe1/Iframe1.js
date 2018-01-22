@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Iframe from '../../../node_modules/react-iframe';
 
 export default class Iframe1 extends React.Component {

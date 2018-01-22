@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "../App.css";
 import ThisJumbotron from "../components/ThisJumbotron";
 import Footer from "../components/Footer";
-import Row from '../../node_modules/react-bootstrap/lib/Row';
-import Col from '../../node_modules/react-bootstrap/lib/Col';
-import Grid from '../../node_modules/react-bootstrap/lib/Grid';
 import Parallax1 from "../components/ParallaxTest";
 import Iframe1 from "../components/Iframe1";
 
