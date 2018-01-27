@@ -7,6 +7,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 import LogoutButton from '../LogoutButton';
 import Auth from "../../modules/Auth";
 import "./Nav1.css";
+import Image from "../../../node_modules/react-bootstrap/lib/Image";
+import Button from "../../../node_modules/react-bootstrap/lib/Button";
+
+
 
 
 
@@ -71,8 +75,10 @@ export class Nav1 extends Component {
    render(){
      return (
         <Navbar fixedTop collapseOnSelect inverse>
-         <Navbar.Header className='image'>
-         <a className="navbar-brand navBrand" href="/">VRE</a> 
+         <Navbar.Header>
+         <a className="navbar-brand navBrand" href="/"></a>
+         <Button href="/" className='image'bsSize="large">
+        </Button> 
            <Navbar.Brand>
            </Navbar.Brand>
            <Navbar.Toggle />

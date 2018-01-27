@@ -1,7 +1,13 @@
-.image {background: url("./assets/volunteer_rescue_logo.png") no-repeat center center;
-
-padding-left: 150px;} 
-
-a {
-	margin-left: 0px;
+.image {background: url("./assets/smallVRELogo.png") no-repeat center center;
+padding-left: 150px; 
+margin-top: 1px;
+border-color: transparent;
+height: 65px !important;	
 }
+
+.btn-default:hover {
+  color: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
