@@ -1,3 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as firebase
+
+
 const mongoose = require("mongoose");
 
 module.exports.connect = uri => {
