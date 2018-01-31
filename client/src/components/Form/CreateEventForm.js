@@ -12,6 +12,8 @@ import NavItem from "../../../node_modules/react-bootstrap/lib/NavItem";
 import {SignUpForm, LoginForm} from  "../Form";
 import {storage} from '../../firebase/fire';
 import GeoLoc from '../GeoLoc'
+import Radio from '../../../node_modules/react-bootstrap/lib/Radio';
+import FormGroup from '../../../node_modules/react-bootstrap/lib/FormGroup';
 
 const jwt = require("jsonwebtoken");
 const storageRef = storage.ref("eventprofile/");
@@ -239,15 +241,26 @@ export class CreateEventForm extends Component {
 						):(							
 							<Modal {...this.props} bsSize="large" aria-labelledby="contained-modal-title-sm">
 								<Modal.Header closeButton>
-									<Modal.Title id="contained-modal-title-sm">Sign Up or Log In to Create an Event</Modal.Title>
+									<Modal.Title id="contained-modal-title-sm">Log In or Sign Up to Request Volunteer Services</Modal.Title>
 								</Modal.Header>
 								<Modal.Body>
 									<div className="container">
 										<GeoLoc />
+										<FormGroup>
+              <h6><u>Select your emergency type. Please select all that apply.</u></h6>
+              <Radio inline name={'highWater'} controlFunc={this.handleInputChange} content={this.state.fireCert}>High Water</Radio>
+
+              <Radio inline name={'medAssist'} controlFunc={this.handleInputChange} content={this.state.lawECert}>Medical Assistance</Radio>
+
+              <Radio inline name={'petCare'} controlFunc={this.handleInputChange} content={this.state.emrMed}>Pet Small Animal Rescue</Radio>
+
+              <Radio inline name={'liveStock'} controlFunc={this.handleInputChange} content={this.state.cdl}>Large Animal Rescue</Radio>
+          </FormGroup>      
 										<Nav>
 											<NavItem eventKey={2} onClick={this.loginOpen }>Log In</NavItem>
 											<NavItem eventKey={3} onClick={this.signInOpen }>Sign Up</NavItem>
 										</Nav>
+													 
 										<SignUpForm show = {this.state.signInShow} onHide={this.signInClose} closeModal={this.signInClose} />
 										<LoginForm show = {this.state.loginShow} onHide={this.loginClose} closeModal={this.loginClose}/>
 									</div>

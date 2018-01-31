@@ -31,7 +31,8 @@
     "react-scripts": "1.0.14",
     "react-scroll-parallax": "^1.1.1",
     "request": "^2.83.0",
-    "rss-to-json": "^1.0.3"
+    "rss-to-json": "^1.0.3",
+    "twit": "^2.2.9"
   },
   "scripts": {
     "start": "react-scripts start",

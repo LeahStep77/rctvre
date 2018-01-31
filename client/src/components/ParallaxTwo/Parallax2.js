@@ -6,11 +6,10 @@ import Row from '../../../node_modules/react-bootstrap/lib/Row';
 import Col from '../../../node_modules/react-bootstrap/lib/Col';
 import NWSFeed from '../NWSFeed';
 import ReadyHarrisFeed from '../ReadyHarrisFeed';
-import HCFloodFeed from '../HCFloodFeed';
 
 
 
-export class Parallax1 extends Component {
+export class Parallax2 extends Component {
   render() {
     return (
       <ParallaxProvider>            
@@ -23,17 +22,13 @@ export class Parallax1 extends Component {
 		    >
 	        <Grid className="theinformation">
             <Row><h2 className='innerinformation'>Most Recent Emergency Alerts</h2>
-              <Col md={4}><h4>National Weather Service Alerts</h4>
-              <NWSFeed />
-               
+              <Col md={3}>
+                
+                <NWSFeed />
               </Col>
-              <Col md={4}><h4>Ready Harris</h4>
-                 <ReadyHarrisFeed />
-              
-              </Col>
-              <Col md={4}><h4>Harris County Flood Warning</h4>
-                <HCFloodFeed />
-              
+              <Col md={3}>
+                
+                <ReadyHarrisFeed />
               </Col>
             </Row>
           </Grid>   
@@ -42,4 +37,4 @@ export class Parallax1 extends Component {
     );
   }
 }
-export default Parallax1;
+export default Parallax2;

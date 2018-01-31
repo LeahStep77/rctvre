@@ -310,6 +310,7 @@ input[type="radio"] {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
+  max-width: 99%;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -6914,6 +6915,8 @@ button.close {
   margin: -5px !important;
   color: white;
   text-align: center;
+  max-width: 100%;
+  margin-left: 0px !important;
 }
 
 .ifrm{
@@ -6977,13 +6980,12 @@ button.close {
 
 
 .overflow {
-  height: 400px;
+  height: 300px;
   overflow-y: scroll;
   align-content: center;
 }
 
 .overflow::-webkit-scrollbar {
-    width: 1em;
-    background-color: black;
+    background-color: transparent;
 }
 
